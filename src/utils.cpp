@@ -22,11 +22,10 @@ std::istream& operator>> (std::istream& stream, IPS& ips) {
 
 std::ostream& operator<<(std::ostream& stream, const IPS& ips) {
     for (const auto& ip: ips) {
-        for (const auto& byte: ip) {
-            stream << byte;
-            if (byte != ip.back()) {
+        for (auto it = ip.cbegin(); it != ip.cend(); ++it) {
+            if (it != ip.cbegin())
                 stream << '.';
-            }
+            stream << *it;
         }
         stream << std::endl;
     }
