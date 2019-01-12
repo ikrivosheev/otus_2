@@ -5,7 +5,8 @@
 
 
 int main() {
-    auto ips = read_from_stream(std::cin);
-    write_into_stream(std::cout, ips);    
+    IPS ips;
+    std::cin >> ips;
+    std::cout << ips;
     return 0;
 }

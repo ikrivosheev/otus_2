@@ -10,8 +10,8 @@ const char IP_DELIMITER = '.';
 using IPS = std::vector<std::vector<std::string> >;
 
 
-auto split(const std::string& s, char delimiter);
-IPS read_from_stream(std::istream& stream);
-void write_into_stream(std::ostream& stream, const IPS& ips); 
+std::vector<std::string> split(const std::string& s, char delimiter);
+std::istream& operator>>(std::istream& stream, IPS& ips); 
+std::ostream& operator<<(std::ostream& stream, const IPS& ips); 
 
 #endif

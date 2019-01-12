@@ -1,6 +1,6 @@
 #include "utils.h"
 
-auto split(const std::string& s, char delimiter) {
+std::vector<std::string> split(const std::string& s, char delimiter) {
    std::vector<std::string> tokens;
    std::string token;
    std::istringstream tokenStream(s);
@@ -11,18 +11,16 @@ auto split(const std::string& s, char delimiter) {
    return tokens;
 }
 
-
-IPS read_from_stream(std::istream& stream) {
-    IPS ips;
+std::istream& operator>> (std::istream& stream, IPS& ips) {
     std::string line;
     while(std::getline(stream, line)) {
        auto tokens = split(line, TOKEN_DELIMITER);
        ips.push_back(std::move(split(tokens[0], IP_DELIMITER)));
     }
-    return ips;
+    return stream;
 }
 
-void write_into_stream(std::ostream& stream, const IPS& ips) {
+std::ostream& operator<<(std::ostream& stream, const IPS& ips) {
     for (const auto& ip: ips) {
         for (const auto& byte: ip) {
             stream << byte;
@@ -32,5 +30,6 @@ void write_into_stream(std::ostream& stream, const IPS& ips) {
         }
         stream << std::endl;
     }
+    return stream;
 }
 
