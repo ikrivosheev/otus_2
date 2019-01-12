@@ -23,22 +23,22 @@ add_executable(ip_filter src/main.cpp)
 
 add_executable(test_ip_filter tests/test_ip_filter.cpp)
 
-add_library(version src/version.cpp)
+add_library(utils src/version.cpp src/utils.cpp)
 
-set_target_properties(ip_filter test_ip_filter version gtest PROPERTIES
+set_target_properties(ip_filter test_ip_filter utils gtest PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
     COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
 )
 
 target_link_libraries(ip_filter
-    version
+    utils
 )
 
 target_link_libraries(test_ip_filter
     gtest
     ${CMAKE_THREAD_LIBS_INIT}
-    helloworld
+	utils
 )
 
 install(TARGETS ip_filter RUNTIME DESTINATION bin)
