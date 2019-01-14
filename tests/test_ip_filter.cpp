@@ -1,3 +1,6 @@
+#include <vector>
+#include <sstream>
+#include <string>
 #include <gtest/gtest.h>
 
 #include "utils.h"
@@ -34,7 +37,7 @@ TEST(TestSplit, SplitStringEmptyStringResult) {
 
 
 TEST(TestIPS, IO_IPS) {
-    IPS ips;
+    std::vector<IP> ips;
     std::string except = "1.1.1.1\n1.1.1.1\n";
     std::stringstream result;
     std::stringstream ss;
