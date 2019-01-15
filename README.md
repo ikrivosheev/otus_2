@@ -1,3 +1,3 @@
-# Otus, first lab
+# Otus, ip filter
 
-![](https://travis-ci.org/ikrivosheev/otus_1.svg?branch=master)
+![](https://travis-ci.org/ikrivosheev/otus_3.svg?branch=master)
