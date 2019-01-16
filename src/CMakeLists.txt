@@ -2,7 +2,7 @@ configure_file(config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/config.h)
 
 add_executable(ip_filter main.cpp)
 
-add_library(utils version.cpp utils.cpp utils.h)
+add_library(utils version.cpp utils.cpp)
 
 set_target_properties(ip_filter utils PROPERTIES
     CXX_STANDARD 14

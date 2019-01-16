@@ -8,9 +8,9 @@ struct {
     int minor;
     int patch;
 } version = { 
-    .major=PROJECT_VERSION_MAJOR, 
-    .minor=PROJECT_VERSION_MINOR,
-    .patch=PROJECT_VERSION_PATCH
+    PROJECT_VERSION_MAJOR, 
+    PROJECT_VERSION_MINOR,
+    PROJECT_VERSION_PATCH
 };
 
 int major_version();

@@ -1,6 +1,6 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 #include "utils.h"
 #include "version.h"
@@ -17,7 +17,7 @@ int main() {
         ips1.cbegin(), 
         ips1.cend(), 
         std::back_inserter(ips2), 
-        [](auto ip){return ip[0] == 1;}
+        [](const auto& ip){return ip[0] == 1;}
     );
     std::cout << ips2;
     ips2.clear();
@@ -25,7 +25,7 @@ int main() {
         ips1.cbegin(), 
         ips1.cend(), 
         std::back_inserter(ips2), 
-        [](auto ip){return (ip[0] == 46) && (ip[1] == 70);}
+        [](const auto& ip){return (ip[0] == 46) && (ip[1] == 70);}
     );
     std::cout << ips2;
     ips2.clear();
@@ -33,7 +33,7 @@ int main() {
         ips1.cbegin(), 
         ips1.cend(), 
         std::back_inserter(ips2), 
-        [](auto ip){return std::find(ip.cbegin(), ip.cend(), 46) != ip.cend();}
+        [](const auto& ip){return std::find(ip.cbegin(), ip.cend(), 46) != ip.cend();}
     );
     std::cout << ips2;
     return 0;
